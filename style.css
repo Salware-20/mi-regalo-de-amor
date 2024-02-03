@@ -1,0 +1,80 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #003566, #000814);
+}
+
+.heart-container {
+    position: relative;
+}
+
+.heart {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background: #ff4757;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #ff4757;
+    animation: animate .6s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1.0);
+    }
+    100% {
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #ff4757;
+    border-radius: 50%;
+    box-shadow: -10px 10px 90px #ff4757;
+}
+
+.heart::before {
+    top: -50%;
+}
+
+.heart::after {
+    right: -50%;
+}
+
+.heart {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ff4757, #e74292);
+}
+
+.petal {
+    position: fixed;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+}
+
+@keyframes fall {
+    0% {
+        transform: rotate(-45deg) translate(0, 0);
+    }
+    100% {
+        transform: rotate(-45deg) translate(0, 500px);
+        opacity: 0;
+    }
+}
